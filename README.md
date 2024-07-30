@@ -2,8 +2,8 @@
 A C code to convert between the different orbital angles used to describe bound timelike geodesics in Kerr spacetime. 
 
 ## To Do List
-- [ ] Port Constants of Motion code to this repository
-- [ ] Create MakeFile
+- [x] Port Constants of Motion code to this repository
+- [x] Create MakeFile
 - [ ] Conversion from Qausi-Keplerain to Mino Action Angle
 - [ ] Conversion from Mino Action Angle to Qausi-Keplerain
 - [ ] Conversion from Mino Action Angle to BL Action Angle
