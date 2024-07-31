@@ -15,7 +15,7 @@ double unsignedfmod(double x, double y){
     }
 }
 
-double RadialMinoTimePhaseToQuasiKeplerian(double a, double p, double e, double x, double qr){ 
+double RadialMinoPhaseToDarwinPhase(double a, double p, double e, double x, double qr){ 
 
     double bulk,r, remainder, psi;
     
@@ -35,7 +35,7 @@ double RadialMinoTimePhaseToQuasiKeplerian(double a, double p, double e, double 
     return bulk + remainder;
     }
 
-double RadialQuasiKeplerianPhaseToMinoTime(double a, double p, double e, double x, double psi){ 
+double RadialDarwinPhaseToMinoPhase(double a, double p, double e, double x, double psi){ 
 
     double bulk,r, remainder, qr,r1,r2,r3,r4,kr,kpsi;
 
@@ -65,7 +65,7 @@ double RadialQuasiKeplerianPhaseToMinoTime(double a, double p, double e, double 
     }
 
 
-double PolarMinoTimePhaseToQuasiKeplerian(double a, double p, double e, double x, double qz){ 
+double PolarMinoPhaseToDarwinPhase(double a, double p, double e, double x, double qz){ 
 
     double bulk,z,zm, remainder, chi;
     
@@ -86,7 +86,7 @@ double PolarMinoTimePhaseToQuasiKeplerian(double a, double p, double e, double x
     return bulk + remainder;
     }
 
-double PolarQuasiKeplerianPhaseToMinoTime(double a, double p, double e, double x, double chi){ 
+double PolarDarwinPhaseToMinoPhase(double a, double p, double e, double x, double chi){ 
 
     double bulk,z, remainder, qz,zm,zp, En, kz;
 
@@ -112,21 +112,50 @@ double PolarQuasiKeplerianPhaseToMinoTime(double a, double p, double e, double x
     return bulk + remainder;
     }
 
-double AzimuthalMinoTimePhaseToQuasiKeplerian(double a, double p, double e, double x, double qr,double qz, double qphi){
+double AzimuthalMinoPhaseToCoordinate(double a, double p, double e, double x, double qr,double qz, double qphi){
 
      // Return phi coordinate
     return qphi + DeltaPhi(a,p,e,x,qr,qz);
    }
 
-double AzimuthalQuasiKeplerianPhaseToMinoTime(double a, double p, double e, double x, double psi,double chi, double phi){
+double AzimuthalCoordinateToMinoPhase(double a, double p, double e, double x, double psi,double chi, double phi){
 
     double qr, qz,qphi;
 
-    qr = RadialQuasiKeplerianPhaseToMinoTime(a,p,e,x,psi);
-    qz = PolarQuasiKeplerianPhaseToMinoTime(a,p,e,x,chi);
+    qr = RadialDarwinPhaseToMinoPhase(a,p,e,x,psi);
+    qz = PolarDarwinPhaseToMinoPhase(a,p,e,x,chi);
 
     qphi = phi - DeltaPhi(a,p,e,x,qr,qz);
 
     return qphi;
    }
+double RadialMinoPhaseToBoyerLindquistPhase(double a, double p, double e, double x, double qr, double qz){
 
+    return qr + RadialFrequency(a,p,e,x)* DeltaT(a,p,e,x,qr,qz);
+}
+
+double PolarMinoPhaseToBoyerLindquistPhase(double a, double p, double e, double x, double qr, double qz){
+
+    return qz + PolarFrequency(a,p,e,x) * DeltaT(a,p,e,x,qr,qz); 
+}
+
+ double AzimuthalMinoPhaseToBoyerLindquistPhase(double a, double p, double e, double x, double qr, double qz, double qphi){
+    return qphi + AzimuthalFrequency(a,p,e,x)* DeltaT(a,p,e,x,qr,qz);
+ }
+
+ void DarwinPhasesToBoyerLindquistPhases(double a, double p, double e, double x, double psi, double chi,double phi, double *Phi_r, double *Phi_theta, double *Phi_phi){
+
+    double qr,qz,qphi, Dt;
+
+    // First convert to Mino Phases
+    qr = RadialDarwinPhaseToMinoPhase(a,p,e,x,psi);
+    qz = PolarDarwinPhaseToMinoPhase(a,p,e,x,chi);
+    qphi = phi - DeltaPhi(a,p,e,x,qr,qz);
+
+    // Then convert to BoyerLinduist Phases'
+    Dt = DeltaT(a,p,e,x,qr,qz); 
+
+    *Phi_r = qr + RadialFrequency(a,p,e,x) * Dt;
+    *Phi_theta = qz + PolarFrequency(a,p,e,x) * Dt;
+    *Phi_phi = phi + AzimuthalFrequency(a,p,e,x) * Dt;
+ }
