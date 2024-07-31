@@ -4,8 +4,8 @@ A C code to convert between the different orbital angles used to describe bound 
 ## To Do List
 - [x] Port Constants of Motion code to this repository
 - [x] Create MakeFile
-- [ ] Conversion from Qausi-Keplerain to Mino Action Angle
-- [ ] Conversion from Mino Action Angle to Qausi-Keplerain
+- [x] Conversion from Qausi-Keplerain to Mino Action Angle
+- [x] Conversion from Mino Action Angle to Qausi-Keplerain
 - [ ] Conversion from Mino Action Angle to BL Action Angle
 - [ ] Root finding
 - [ ] Conversion from BL Action Angle to Mino Action Angle

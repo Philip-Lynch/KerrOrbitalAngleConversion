@@ -111,3 +111,22 @@ double PolarQuasiKeplerianPhaseToMinoTime(double a, double p, double e, double x
 
     return bulk + remainder;
     }
+
+double AzimuthalMinoTimePhaseToQuasiKeplerian(double a, double p, double e, double x, double qr,double qz, double qphi){
+
+     // Return phi coordinate
+    return qphi + DeltaPhi(a,p,e,x,qr,qz);
+   }
+
+double AzimuthalQuasiKeplerianPhaseToMinoTime(double a, double p, double e, double x, double psi,double chi, double phi){
+
+    double qr, qz,qphi;
+
+    qr = RadialQuasiKeplerianPhaseToMinoTime(a,p,e,x,psi);
+    qz = PolarQuasiKeplerianPhaseToMinoTime(a,p,e,x,chi);
+
+    qphi = phi - DeltaPhi(a,p,e,x,qr,qz);
+
+    return qphi;
+   }
+
