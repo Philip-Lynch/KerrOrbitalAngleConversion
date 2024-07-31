@@ -1,3 +1,10 @@
+// Definitions for using CForm'ed output from Mathematica
+/*#define Sin(x)          (sin((double)(x)))
+#define Cos(x)          (cos((double)(x)))
+#define Power(x, y)     (pow((double)(x), (double)(y)))
+#define Sqrt(x)         (sqrt((double)(x)))
+#define Pi				M_PI
+*/
 double Jacobi_am(double u, char arg,  double x);
 
 //Horizon Locations

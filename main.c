@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include "common_definitions.h"
 #include "constants_of_motion.h"
-#include "OscillatingTerms.h"
+#include "oscillating_terms.h"
+#include "angle_conversions.h"
 #include <time.h>
 #include <gsl/gsl_sf_ellint.h>
 #include <gsl/gsl_sf_elljac.h>
 
-
-#define Pi				M_PI
 
 
 int main(int argc, char **argv){
@@ -20,7 +20,8 @@ int main(int argc, char **argv){
 
     clock_t start, end;
     double a, p, e, x, r1, r2, r3, r4, zm, cpu_time_used, 
-    qr,qz, Freq_r,Freq_z, r,z,theta,phi,t,Freq_t,Freq_phi;
+    qr,qz, Freq_r,Freq_z, r,z,theta,phi,t,Freq_t,Freq_phi, 
+    psi,chi,test;
 
     a = atof(argv[1]);
     p = atof(argv[2]);
@@ -65,7 +66,18 @@ int main(int argc, char **argv){
     printf("r =  %f\n", r);
     printf("theta =  %f\n", theta);
     printf("Phi = %f\n", phi);
-    
+
+    printf("\n___Angle Conversions___\n");
+    psi = RadialMinoTimePhaseToQuasiKeplerian(a,p, e,x,qr);
+    printf("psi = %f\n", psi);
+    chi = PolarMinoTimePhaseToQuasiKeplerian(a,p, e,x,qz);
+    printf("chi = %f\n", chi); 
+    test = RadialQuasiKeplerianPhaseToMinoTime(a,p,e,x,psi);
+    printf("qr = %f\n", test);
+    printf("Differnece = %f\n", test - qr);
+    test = PolarQuasiKeplerianPhaseToMinoTime(a,p,e,x,chi);
+    printf("qz = %f\n", test);
+    printf("Differnece = %f\n", test - qz);
 
     
     return 0;

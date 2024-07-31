@@ -3,13 +3,7 @@
 #include <gsl/gsl_sf_elljac.h>
 #include <math.h>
 #include<float.h>
-
-// Definitions for using CForm'ed output from Mathematica
-#define Sin(x)          (sin((double)(x)))
-#define Cos(x)          (cos((double)(x)))
-#define Power(x, y)     (pow((double)(x), (double)(y)))
-#define Sqrt(x)         (sqrt((double)(x)))
-#define Pi				M_PI
+#include "common_definitions.h"
 
 #define N 30
 
