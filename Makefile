@@ -3,7 +3,7 @@ CC = gcc-14
 GSL_PREFIX = /opt/homebrew/opt/gsl
 CFLAGS = -I$(GSL_PREFIX)/include -O3
 LDFLAGS = -L$(GSL_PREFIX)/lib -lgsl -lgslcblas -lm
-TARGET = kerrCoM
+TARGET = KerrAngleConversion
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 
