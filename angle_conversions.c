@@ -17,6 +17,11 @@ double unsignedfmod(double x, double y){
 
 double RadialMinoPhaseToDarwinPhase(double a, double p, double e, double x, double qr){ 
 
+    // Radial phases are equivilent in circular orbit limit
+    if(e == 0){
+        return qr;
+    }
+    
     double bulk,r, remainder, psi;
     
     bulk = qr - unsignedfmod(qr , 2*Pi);
@@ -36,6 +41,11 @@ double RadialMinoPhaseToDarwinPhase(double a, double p, double e, double x, doub
     }
 
 double RadialDarwinPhaseToMinoPhase(double a, double p, double e, double x, double psi){ 
+
+    // Radial phases are equivilent in circular orbit limit
+    if(e == 0){
+        return psi;
+    }
 
     double bulk,r, remainder, qr,r1,r2,r3,r4,kr,kpsi;
 
@@ -67,6 +77,11 @@ double RadialDarwinPhaseToMinoPhase(double a, double p, double e, double x, doub
 
 double PolarMinoPhaseToDarwinPhase(double a, double p, double e, double x, double qz){ 
 
+    // Polar phases are equivilent in equatorial plane
+    if(x == 1){
+        return qz;
+    }
+
     double bulk,z,zm, remainder, chi;
     
     bulk = qz - unsignedfmod(qz , 2*Pi);
@@ -87,6 +102,11 @@ double PolarMinoPhaseToDarwinPhase(double a, double p, double e, double x, doubl
     }
 
 double PolarDarwinPhaseToMinoPhase(double a, double p, double e, double x, double chi){ 
+
+    // Polar phases are equivilent in equatorial plane
+    if(x == 1){
+        return chi;
+    }
 
     double bulk,z, remainder, qz,zm,zp, En, kz;
 
@@ -152,10 +172,11 @@ double PolarMinoPhaseToBoyerLindquistPhase(double a, double p, double e, double 
     qz = PolarDarwinPhaseToMinoPhase(a,p,e,x,chi);
     qphi = phi - DeltaPhi(a,p,e,x,qr,qz);
 
-    // Then convert to BoyerLinduist Phases'
+    // Then convert to BoyerLinduist Phases
     Dt = DeltaT(a,p,e,x,qr,qz); 
 
     *Phi_r = qr + RadialFrequency(a,p,e,x) * Dt;
     *Phi_theta = qz + PolarFrequency(a,p,e,x) * Dt;
-    *Phi_phi = phi + AzimuthalFrequency(a,p,e,x) * Dt;
+    *Phi_phi = qphi + AzimuthalFrequency(a,p,e,x) * Dt;
  }
+

@@ -181,8 +181,8 @@ double Energy(double a, double p, double e, double x){
     eta = F(a,r1,zm)*G(a,r2) - G(a,r1)*F(a,r2,zm);
     sigma = G(a,r1)*H(a,r2,zm) - H(a,r1,zm)*G(a,r2);
 
-    return Sqrt((kappa*rho + 2.*epsilon*sigma - 2.*Sqrt(sigma*(-1.*eta*Power(kappa,2) 
-    + epsilon*kappa*rho + Power(epsilon,2)*sigma)))/(Power(rho,2) + 4.*eta*sigma));
+    return Sqrt((kappa*rho + 2.*epsilon*sigma - 2.*x*Sqrt(sigma*(-1.*eta*Power(kappa,2) 
+    + epsilon*kappa*rho + Power(epsilon,2)*sigma)/Power(x,2)))/(Power(rho,2) + 4.*eta*sigma));
 }
 
 double AngularMomentum(double a, double p, double e, double x){
@@ -195,9 +195,9 @@ double AngularMomentum(double a, double p, double e, double x){
     
     En = Energy(a,p,e,x);
 
-    return (-1.*En*G(a,r1) + Sqrt(1. - 1.*Power(zm,2))*
+    return (-1.*En*G(a,r1) + x*
       Sqrt((-1.*D(a,r1,zm)*H(a,r1,zm) + Power(En,2)*(Power(G(a,r1),2) 
-      + F(a,r1,zm)*H(a,r1,zm)))/(1. - 1.*Power(zm,2))))/H(a,r1,zm);
+      + F(a,r1,zm)*H(a,r1,zm)))/(Power(x,2))))/H(a,r1,zm);
 }
 
 double CarterConstant(double a, double p, double e, double x){
@@ -291,13 +291,13 @@ double PolarMinoFrequency(double a, double p, double e, double x){
 
 double TimeMinoFrequency(double a, double p, double e, double x){
 
-    double En, L, r1, r2 ,r3 ,r4, rp, rm, zm, zp, kr, kz, hr, hp, hm, hM, 
-    a2zp, e0zp, UpsilonZ, UpsilonR, K_kr, Pi_hr_kr, Pi_hM_kr, zmpverZp, Gamma;
+    double En, L,Q, r1, r2 ,r3 ,r4, rout, rin, zm, zp, kr, kz, hr, hout, hin, hM, 
+    Kkr,Ekr, Pihrkr, PihMkr,radial,polar;
 
     double M = 1.0;
 
-    rp = OuterHorizon(a);
-    rm = InnerHorizon(a);
+    rout = OuterHorizon(a);
+    rin = InnerHorizon(a);
     r1 = RadialRoot1(p,e);
     r2 = RadialRoot2(p,e);
     r3 = RadialRoot3(a,p,e,x);
@@ -310,51 +310,47 @@ double TimeMinoFrequency(double a, double p, double e, double x){
 
     En = Energy(a,p,e,x);
     L = AngularMomentum(a,p,e,x);
-
+    Q = CarterConstant(a,p,e,x);
     kz = (Power(a,2)*(1.0 - Power(En,2))*Power(zm,2))/Power(zp,2);
 
     
     hr = (r1 - r2)/(r1 - r3);
-    hp = hr * (r3 - rp)/(r2 - rp);
-    hm = hr * (r3 - rm)/(r2 - rm);
+    hout = hr * (r3 - rout)/(r2 - rout);
+    hin = hr * (r3 - rin)/(r2 - rin); 
     hM =  ((r1 - r2)*(r3 - M))/((r1 - r3)*(r2 - M));
 
-    a2zp = (Power(L,2) + Power(a,2)*(-1.0 + Power(En,2))*(-1.0 + Power(zm,2)))/
-        ((-1.0 + Power(En,2))*(-1.0 + Power(zm,2)));
+    Kkr = EllipticK(kr);
+    Ekr = EllipticE(kr);
+    Pihrkr = EllipticPi(hr,kr);
 
-    e0zp = -((Power(L,2) + Power(a,2)*(-1.0 + Power(En,2))*(-1.0 + Power(zm,2)))/
-        (Power(L,2)*(-1.0 + Power(zm,2))));
 
-    UpsilonR = RadialMinoFrequency(a,p,e,x);
-    UpsilonZ = PolarMinoFrequency(a,p,e,x);
+    radial = (4 + Power(a,2))*En + En*(2*((Pihrkr*(r2 - r3))/Kkr + r3) + 
+      (-(r1*r2) + r3*(r1 + r2 + r3) + (Ekr*(r1 - r3)*(r2 - r4))/Kkr + 
+         (Pihrkr*(r2 - r3)*(r1 + r2 + r3 + r4))/Kkr)/2. + 
+      (-(((-2*Power(a,2) + (4 - (a*L)/En)*rin)*(1 - ((r2 - r3)*EllipticPi(hin,kr))/(Kkr*(r2 - rin))))/
+            (r3 - rin)) + ((-2*Power(a,2) + (4 - (a*L)/En)*rout)*
+            (1 - ((r2 - r3)*EllipticPi(hout,kr))/(Kkr*(r2 - rout))))/(r3 - rout))/Sqrt(1 - Power(a,2)));
 
-    K_kr = EllipticK(kr);
-    Pi_hr_kr = EllipticPi(hr,kr);
+    if(fabs(x) == 1){
+        polar = - Power(a,2) * En;
+    }
+    else {
+        polar = -(Power(a,2)*En) + (En*Q*(1 - EllipticE((Power(a,2)*(1 - Power(En,2))*Power(zm,2))/Power(zp,2))/
+         EllipticK((Power(a,2)*(1 - Power(En,2))*Power(zm,2))/Power(zp,2))))/((1 - Power(En,2))*Power(zm,2));
+    }
 
-    return 4*En*Power(M,2) + (2*a2zp*En*UpsilonZ*(-EllipticE(kz) + EllipticK(kz)))/
-    (Sqrt(e0zp)*L*Pi) + (2*UpsilonR*((2*M*
-           (-(((-2*Power(a,2)*En*M + (-(a*L) + 4*En*Power(M,2))*rm)*
-                  (K_kr - ((r2 - r3)*EllipticPi(hm,kr))/(r2 - rm)))/
-                (r3 - rm)) + ((-2*Power(a,2)*En*M + (-(a*L) + 4*En*Power(M,2))*rp)*
-                (K_kr - ((r2 - r3)*EllipticPi(hp,kr))/(r2 - rp)))/
-              (r3 - rp)))/(-rm + rp) + 
-        2*En*M*(r3*K_kr + (r2 - r3)*Pi_hr_kr) + 
-        (En*((r1 - r3)*(r2 - r4)*EllipticE(kr) + 
-             (-(r1*r2) + r3*(r1 + r2 + r3))*K_kr + 
-             (r2 - r3)*(r1 + r2 + r3 + r4)*Pi_hr_kr))/2.))/
-    (Pi*Sqrt((1 - Power(En,2))*(r1 - r3)*(r2 - r4)));
-
+    return radial + polar;
 }
 
 double AzimuthalMinoFrequency(double a, double p, double e, double x){
 
-    double En, L, r1, r2 ,r3 ,r4, rp, rm, zm, zp, kr, kz, hr, hp, hm, 
-    a2zp, e0zp, UpsilonZ, UpsilonR, K_kr, Pi_hr_kr, Pi_hM_kr, zmpverZp, Freq;
+    double En, L,Q, r1, r2 ,r3 ,r4, rout, rin, zm, zp, kr, kz, hr, hout, hin, hM, 
+    Kkr,Ekr, Pihrkr, PihMkr,radial,polar;
 
     double M = 1.0;
 
-    rp = OuterHorizon(a);
-    rm = InnerHorizon(a);
+    rout = OuterHorizon(a);
+    rin = InnerHorizon(a);
     r1 = RadialRoot1(p,e);
     r2 = RadialRoot2(p,e);
     r3 = RadialRoot3(a,p,e,x);
@@ -367,33 +363,28 @@ double AzimuthalMinoFrequency(double a, double p, double e, double x){
 
     En = Energy(a,p,e,x);
     L = AngularMomentum(a,p,e,x);
-
+    Q = CarterConstant(a,p,e,x);
     kz = (Power(a,2)*(1.0 - Power(En,2))*Power(zm,2))/Power(zp,2);
 
     
     hr = (r1 - r2)/(r1 - r3);
-    hp = hr * (r3 - rp)/(r2 - rp);
-    hm = hr * (r3 - rm)/(r2 - rm);
+    hout = hr * (r3 - rout)/(r2 - rout);
+    hin = hr * (r3 - rin)/(r2 - rin); 
+    hM =  ((r1 - r2)*(r3 - M))/((r1 - r3)*(r2 - M));
 
-    a2zp = (Power(L,2) + Power(a,2)*(-1.0 + Power(En,2))*(-1.0 + Power(zm,2)))/
-        ((-1.0 + Power(En,2))*(-1.0 + Power(zm,2)));
+    Kkr = EllipticK(kr);
+    Ekr = EllipticE(kr);
+    Pihrkr = EllipticPi(hr,kr);
 
-    e0zp = -((Power(L,2) + Power(a,2)*(-1.0 + Power(En,2))*(-1.0 + Power(zm,2)))/
-        (Power(L,2)*(-1.0 + Power(zm,2))));
 
-    UpsilonR = RadialMinoFrequency(a,p,e,x);
-    UpsilonZ = PolarMinoFrequency(a,p,e,x);
+    radial = (a*(-(((-(a*L) + 2*En*rin)*(1 - ((r2 - r3)*EllipticPi(hin,kr))/(Kkr*(r2 - rin))))/(r3 - rin)) + 
+       ((-(a*L) + 2*En*rout)*(1 - ((r2 - r3)*EllipticPi(hout,kr))/(Kkr*(r2 - rout))))/(r3 - rout)))/
+   (2.*Sqrt(1 - Power(a,2)));
 
-    K_kr = EllipticK(kr);
-    Pi_hr_kr = EllipticPi(hr,kr);
+   polar = (L*EllipticPi(Power(zm,2),(Power(a,2)*(1 - Power(En,2))*Power(zm,2))/Power(zp,2)))/
+   EllipticK((Power(a,2)*(1 - Power(En,2))*Power(zm,2))/Power(zp,2));
 
-    
-
-    return (2*UpsilonZ*EllipticPi(Power(zm,2),kz))/(Sqrt(e0zp)*Pi) + 
-            (2*a*UpsilonR*(-(((-(a*L) + 2*En*M*rm)*(EllipticK(kr) - 
-            ((r2 - r3)*EllipticPi(hm,kr))/(r2 - rm)))/(r3 - rm)) + 
-            ((-(a*L) + 2*En*M*rp)*(EllipticK(kr) - ((r2 - r3)*EllipticPi(hp,kr))/(r2 - rp)))/
-            (r3 - rp)))/(Pi*Sqrt((1 - Power(En,2))*(r1 - r3)*(r2 - r4))*(-rm + rp));
+    return radial + polar;
 }
 
 

@@ -1,7 +1,7 @@
 # Variables
 CC = gcc-14
 GSL_PREFIX = /opt/homebrew/opt/gsl
-CFLAGS = -I$(GSL_PREFIX)/include -O3
+CFLAGS = -I$(GSL_PREFIX)/include 
 LDFLAGS = -L$(GSL_PREFIX)/lib -lgsl -lgslcblas -lm
 TARGET = kerrCoM
 SRCS = $(wildcard *.c)
