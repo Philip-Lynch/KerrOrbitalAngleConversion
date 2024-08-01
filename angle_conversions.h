@@ -20,3 +20,6 @@ double AzimuthalMinoPhaseToBoyerLindquistPhase(double a, double p, double e, dou
 
 void DarwinPhasesToBoyerLindquistPhases(double a, double p, double e, double x, double psi, double chi,double phi, double *Phi_r, double *Phi_theta, double *Phi_phi);
 
+void BoyerLindquistPhasesToDarwinPhases(double a, double p, double e, double x, double Phi_r, double Phi_theta,double Phi_phi, double *psi, double *chi, double *phi);
+
+

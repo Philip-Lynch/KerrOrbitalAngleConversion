@@ -6,8 +6,9 @@ A C code to convert between the different orbital angles used to describe bound 
 - [x] Create MakeFile
 - [x] Conversion from Qausi-Keplerain to Mino Action Angle
 - [x] Conversion from Mino Action Angle to Qausi-Keplerain
-- [ ] Conversion from Mino Action Angle to BL Action Angle
-- [ ] Root finding
-- [ ] Conversion from BL Action Angle to Mino Action Angle
-- [ ] Conversion from Quasi-Keplerian to BL Action angle
-- [ ] Conversion from BL Action angle to Quasi-Keplerian
+- [x] Conversion from Mino Action Angle to BL Action Angle
+- [x] Root finding
+- [x] Conversion from Quasi-Keplerian to BL Action angle
+- [x] Conversion from BL Action angle to Quasi-Keplerian
+- [ ] Tidy up repo in a smart way
+- [ ] Documentation 

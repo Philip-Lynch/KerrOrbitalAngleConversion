@@ -71,18 +71,20 @@ int main(int argc, char **argv){
     printf("Polar Boyer-Lindquist Phase: %f\n", Phi_theta);
     printf("Azimuthal Boyer-Lindquist Phase: %f\n", Phi_phi);
     printf("CPU time taken: %f ms\n", cpu_time_used);
-    
+
+    double psi_test,chi_test,phi_test;
     start = clock();
-    int status = RootFindingMinoPhases(a, p,e, x,Phi_r,Phi_theta,&qr, &qz);
+    BoyerLindquistPhasesToDarwinPhases(a,p,e,x,Phi_r,Phi_theta,Phi_phi,&psi_test,&chi_test,&phi_test);
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC *1000;
-
-    if (status == GSL_SUCCESS) {
-        printf("Final solution: qr = %f, qz = %f\n", qr, qz);
-    } else {
-        printf("Root-finding failed\n");
-    }
+    printf("Radial Darwin Phase: %f ", psi_test);
+    printf("Error: %e \n",psi_test - psi);
+    printf("Polar Darwin Phase: %f ", chi_test);
+    printf("Error: %e \n",chi_test - chi);
+    printf("Azimuthal Coordinate: %f ", phi_test);
+    printf("Error: %e \n",phi_test - phi);
     printf("CPU time taken: %f ms\n", cpu_time_used);
+
 
     return 0;
 }

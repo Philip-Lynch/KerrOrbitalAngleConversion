@@ -5,6 +5,7 @@
 #include "common_definitions.h"
 #include "constants_of_motion.h"
 #include "oscillating_terms.h"
+#include "root_finding.h"
 
 double unsignedfmod(double x, double y){
     if(x>= 0){
@@ -178,5 +179,18 @@ double PolarMinoPhaseToBoyerLindquistPhase(double a, double p, double e, double 
     *Phi_r = qr + RadialFrequency(a,p,e,x) * Dt;
     *Phi_theta = qz + PolarFrequency(a,p,e,x) * Dt;
     *Phi_phi = qphi + AzimuthalFrequency(a,p,e,x) * Dt;
+ }
+
+ void BoyerLindquistPhasesToDarwinPhases(double a, double p, double e, double x, double Phi_r, double Phi_theta,double Phi_phi, double *psi, double *chi, double *phi){
+
+    double qr,qz,qphi;
+
+    // First convert to Mino Phases
+    int status = RootFindingMinoPhases(a, p,e, x,Phi_r,Phi_theta,&qr, &qz);
+    qphi = Phi_phi - AzimuthalFrequency(a,p,e,x)*DeltaT(a,p,e,x,qr,qz);
+
+    *psi = RadialMinoPhaseToDarwinPhase(a,p,e,x,qr);
+    *chi = PolarMinoPhaseToDarwinPhase(a,p,e,x,qz);
+    *phi = AzimuthalMinoPhaseToCoordinate(a,p,e,x,qr,qz,qphi);
  }
 
