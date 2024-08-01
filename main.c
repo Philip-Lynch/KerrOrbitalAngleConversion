@@ -5,7 +5,10 @@
 #include "constants_of_motion.h"
 #include "oscillating_terms.h"
 #include "angle_conversions.h"
+#include "root_finding.h"
 #include <time.h>
+#include <gsl/gsl_vector.h>
+#include <gsl/gsl_multiroots.h>
 #include <gsl/gsl_sf_ellint.h>
 #include <gsl/gsl_sf_elljac.h>
 
@@ -67,6 +70,18 @@ int main(int argc, char **argv){
     printf("Radial Boyer-Lindquist Phase: %f\n", Phi_r);
     printf("Polar Boyer-Lindquist Phase: %f\n", Phi_theta);
     printf("Azimuthal Boyer-Lindquist Phase: %f\n", Phi_phi);
+    printf("CPU time taken: %f ms\n", cpu_time_used);
+    
+    start = clock();
+    int status = RootFindingMinoPhases(a, p,e, x,Phi_r,Phi_theta,&qr, &qz);
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC *1000;
+
+    if (status == GSL_SUCCESS) {
+        printf("Final solution: qr = %f, qz = %f\n", qr, qz);
+    } else {
+        printf("Root-finding failed\n");
+    }
     printf("CPU time taken: %f ms\n", cpu_time_used);
 
     return 0;
