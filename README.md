@@ -2,7 +2,7 @@
 A repository for converting between the different orbital angles used to describe bound timelike geodesics in Kerr spacetime. This code contains a Wolfram Language (Mathematica) implimentation, a C implimentation and Cython bindings so that one can use the C implimentation in Python. 
 
 ## Mathematica Implimentation
-The mathematica implimentation is located in the mma directory. Simply run any cell in the notebook and agree to evaluate all initialization cells. From there one can work through the Example section. 
+The mathematica implimentation is located in the mma directory. Simply run any cell in the notebook and agree to evaluate all initialization cells. From there one can work through the "Testing the Conversion" section. 
 
 ## C Implimentation
 This code requires the gsl library. 
