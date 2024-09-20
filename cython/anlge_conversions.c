@@ -2007,7 +2007,7 @@ static const char __pyx_k_a[] = "a";
 static const char __pyx_k_e[] = "e";
 static const char __pyx_k_p[] = "p";
 static const char __pyx_k_x[] = "x";
-static const char __pyx_k__3[] = "?";
+static const char __pyx_k__5[] = "?";
 static const char __pyx_k_chi[] = "chi";
 static const char __pyx_k_phi[] = "phi";
 static const char __pyx_k_psi[] = "psi";
@@ -2022,9 +2022,11 @@ static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_kerrangleconversions[] = "kerrangleconversions";
 static const char __pyx_k_cython_anlge_conversions_pyx[] = "cython/anlge_conversions.pyx";
+static const char __pyx_k_pyBoyerLindquistPhasesToDarwinPh[] = "pyBoyerLindquistPhasesToDarwinPhases";
 static const char __pyx_k_pyDarwinPhasesToBoyerLindquistPh[] = "pyDarwinPhasesToBoyerLindquistPhases";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_20kerrangleconversions_pyDarwinPhasesToBoyerLindquistPhases(CYTHON_UNUSED PyObject *__pyx_self, double __pyx_v_a, double __pyx_v_p, double __pyx_v_e, double __pyx_v_x, double __pyx_v_psi, double __pyx_v_chi, double __pyx_v_phi); /* proto */
+static PyObject *__pyx_pf_20kerrangleconversions_2pyBoyerLindquistPhasesToDarwinPhases(CYTHON_UNUSED PyObject *__pyx_self, double __pyx_v_a, double __pyx_v_p, double __pyx_v_e, double __pyx_v_x, double __pyx_v_Phi_r, double __pyx_v_Phi_theta, double __pyx_v_Phi_phi); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2057,7 +2059,7 @@ typedef struct {
   PyObject *__pyx_n_s_Phi_phi;
   PyObject *__pyx_n_s_Phi_r;
   PyObject *__pyx_n_s_Phi_theta;
-  PyObject *__pyx_n_s__3;
+  PyObject *__pyx_n_s__5;
   PyObject *__pyx_n_s_a;
   PyObject *__pyx_n_s_asyncio_coroutines;
   PyObject *__pyx_n_s_chi;
@@ -2071,11 +2073,14 @@ typedef struct {
   PyObject *__pyx_n_s_p;
   PyObject *__pyx_n_s_phi;
   PyObject *__pyx_n_s_psi;
+  PyObject *__pyx_n_s_pyBoyerLindquistPhasesToDarwinPh;
   PyObject *__pyx_n_s_pyDarwinPhasesToBoyerLindquistPh;
   PyObject *__pyx_n_s_test;
   PyObject *__pyx_n_s_x;
   PyObject *__pyx_tuple_;
+  PyObject *__pyx_tuple__3;
   PyObject *__pyx_codeobj__2;
+  PyObject *__pyx_codeobj__4;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -2121,7 +2126,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_Phi_phi);
   Py_CLEAR(clear_module_state->__pyx_n_s_Phi_r);
   Py_CLEAR(clear_module_state->__pyx_n_s_Phi_theta);
-  Py_CLEAR(clear_module_state->__pyx_n_s__3);
+  Py_CLEAR(clear_module_state->__pyx_n_s__5);
   Py_CLEAR(clear_module_state->__pyx_n_s_a);
   Py_CLEAR(clear_module_state->__pyx_n_s_asyncio_coroutines);
   Py_CLEAR(clear_module_state->__pyx_n_s_chi);
@@ -2135,11 +2140,14 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_p);
   Py_CLEAR(clear_module_state->__pyx_n_s_phi);
   Py_CLEAR(clear_module_state->__pyx_n_s_psi);
+  Py_CLEAR(clear_module_state->__pyx_n_s_pyBoyerLindquistPhasesToDarwinPh);
   Py_CLEAR(clear_module_state->__pyx_n_s_pyDarwinPhasesToBoyerLindquistPh);
   Py_CLEAR(clear_module_state->__pyx_n_s_test);
   Py_CLEAR(clear_module_state->__pyx_n_s_x);
   Py_CLEAR(clear_module_state->__pyx_tuple_);
+  Py_CLEAR(clear_module_state->__pyx_tuple__3);
   Py_CLEAR(clear_module_state->__pyx_codeobj__2);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__4);
   return 0;
 }
 #endif
@@ -2163,7 +2171,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_Phi_phi);
   Py_VISIT(traverse_module_state->__pyx_n_s_Phi_r);
   Py_VISIT(traverse_module_state->__pyx_n_s_Phi_theta);
-  Py_VISIT(traverse_module_state->__pyx_n_s__3);
+  Py_VISIT(traverse_module_state->__pyx_n_s__5);
   Py_VISIT(traverse_module_state->__pyx_n_s_a);
   Py_VISIT(traverse_module_state->__pyx_n_s_asyncio_coroutines);
   Py_VISIT(traverse_module_state->__pyx_n_s_chi);
@@ -2177,11 +2185,14 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_p);
   Py_VISIT(traverse_module_state->__pyx_n_s_phi);
   Py_VISIT(traverse_module_state->__pyx_n_s_psi);
+  Py_VISIT(traverse_module_state->__pyx_n_s_pyBoyerLindquistPhasesToDarwinPh);
   Py_VISIT(traverse_module_state->__pyx_n_s_pyDarwinPhasesToBoyerLindquistPh);
   Py_VISIT(traverse_module_state->__pyx_n_s_test);
   Py_VISIT(traverse_module_state->__pyx_n_s_x);
   Py_VISIT(traverse_module_state->__pyx_tuple_);
+  Py_VISIT(traverse_module_state->__pyx_tuple__3);
   Py_VISIT(traverse_module_state->__pyx_codeobj__2);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__4);
   return 0;
 }
 #endif
@@ -2215,7 +2226,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_Phi_phi __pyx_mstate_global->__pyx_n_s_Phi_phi
 #define __pyx_n_s_Phi_r __pyx_mstate_global->__pyx_n_s_Phi_r
 #define __pyx_n_s_Phi_theta __pyx_mstate_global->__pyx_n_s_Phi_theta
-#define __pyx_n_s__3 __pyx_mstate_global->__pyx_n_s__3
+#define __pyx_n_s__5 __pyx_mstate_global->__pyx_n_s__5
 #define __pyx_n_s_a __pyx_mstate_global->__pyx_n_s_a
 #define __pyx_n_s_asyncio_coroutines __pyx_mstate_global->__pyx_n_s_asyncio_coroutines
 #define __pyx_n_s_chi __pyx_mstate_global->__pyx_n_s_chi
@@ -2229,14 +2240,17 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_p __pyx_mstate_global->__pyx_n_s_p
 #define __pyx_n_s_phi __pyx_mstate_global->__pyx_n_s_phi
 #define __pyx_n_s_psi __pyx_mstate_global->__pyx_n_s_psi
+#define __pyx_n_s_pyBoyerLindquistPhasesToDarwinPh __pyx_mstate_global->__pyx_n_s_pyBoyerLindquistPhasesToDarwinPh
 #define __pyx_n_s_pyDarwinPhasesToBoyerLindquistPh __pyx_mstate_global->__pyx_n_s_pyDarwinPhasesToBoyerLindquistPh
 #define __pyx_n_s_test __pyx_mstate_global->__pyx_n_s_test
 #define __pyx_n_s_x __pyx_mstate_global->__pyx_n_s_x
 #define __pyx_tuple_ __pyx_mstate_global->__pyx_tuple_
+#define __pyx_tuple__3 __pyx_mstate_global->__pyx_tuple__3
 #define __pyx_codeobj__2 __pyx_mstate_global->__pyx_codeobj__2
+#define __pyx_codeobj__4 __pyx_mstate_global->__pyx_codeobj__4
 /* #### Code section: module_code ### */
 
-/* "cython/anlge_conversions.pyx":8
+/* "cython/anlge_conversions.pyx":11
  * 
  * # Python Wrapper
  * def pyDarwinPhasesToBoyerLindquistPhases(double a, double p, double e, double x, double psi, double chi,double phi):             # <<<<<<<<<<<<<<
@@ -2315,7 +2329,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -2323,9 +2337,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 1); __PYX_ERR(0, 8, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 1); __PYX_ERR(0, 11, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -2333,9 +2347,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 2); __PYX_ERR(0, 8, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 2); __PYX_ERR(0, 11, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -2343,9 +2357,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[3]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 3); __PYX_ERR(0, 8, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 3); __PYX_ERR(0, 11, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
@@ -2353,9 +2367,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[4]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 4); __PYX_ERR(0, 8, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 4); __PYX_ERR(0, 11, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
@@ -2363,9 +2377,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 5); __PYX_ERR(0, 8, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 5); __PYX_ERR(0, 11, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
@@ -2373,14 +2387,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[6]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 6); __PYX_ERR(0, 8, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, 6); __PYX_ERR(0, 11, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "pyDarwinPhasesToBoyerLindquistPhases") < 0)) __PYX_ERR(0, 8, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "pyDarwinPhasesToBoyerLindquistPhases") < 0)) __PYX_ERR(0, 11, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 7)) {
       goto __pyx_L5_argtuple_error;
@@ -2393,17 +2407,17 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
       values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
     }
-    __pyx_v_a = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_a == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
-    __pyx_v_p = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_p == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
-    __pyx_v_e = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_e == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
-    __pyx_v_x = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
-    __pyx_v_psi = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_psi == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
-    __pyx_v_chi = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_chi == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
-    __pyx_v_phi = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_phi == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 8, __pyx_L3_error)
+    __pyx_v_a = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_a == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+    __pyx_v_p = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_p == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+    __pyx_v_e = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_e == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+    __pyx_v_x = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+    __pyx_v_psi = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_psi == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+    __pyx_v_chi = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_chi == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+    __pyx_v_phi = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_phi == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, __pyx_nargs); __PYX_ERR(0, 8, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("pyDarwinPhasesToBoyerLindquistPhases", 1, 7, 7, __pyx_nargs); __PYX_ERR(0, 11, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2445,7 +2459,7 @@ static PyObject *__pyx_pf_20kerrangleconversions_pyDarwinPhasesToBoyerLindquistP
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pyDarwinPhasesToBoyerLindquistPhases", 1);
 
-  /* "cython/anlge_conversions.pyx":13
+  /* "cython/anlge_conversions.pyx":16
  *     cdef double Phi_phi
  * 
  *     DarwinPhasesToBoyerLindquistPhases(a,p,e,x,psi,chi,phi, &Phi_r, &Phi_theta, &Phi_phi)             # <<<<<<<<<<<<<<
@@ -2454,26 +2468,28 @@ static PyObject *__pyx_pf_20kerrangleconversions_pyDarwinPhasesToBoyerLindquistP
  */
   DarwinPhasesToBoyerLindquistPhases(__pyx_v_a, __pyx_v_p, __pyx_v_e, __pyx_v_x, __pyx_v_psi, __pyx_v_chi, __pyx_v_phi, (&__pyx_v_Phi_r), (&__pyx_v_Phi_theta), (&__pyx_v_Phi_phi));
 
-  /* "cython/anlge_conversions.pyx":15
+  /* "cython/anlge_conversions.pyx":18
  *     DarwinPhasesToBoyerLindquistPhases(a,p,e,x,psi,chi,phi, &Phi_r, &Phi_theta, &Phi_phi)
  * 
  *     return (Phi_r,Phi_theta,Phi_phi)             # <<<<<<<<<<<<<<
+ * 
+ * def pyBoyerLindquistPhasesToDarwinPhases(double a, double p, double e, double x,double Phi_r, double Phi_theta,double Phi_phi):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_Phi_r); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_Phi_r); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_Phi_theta); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_Phi_theta); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_Phi_phi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_Phi_phi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
@@ -2481,7 +2497,7 @@ static PyObject *__pyx_pf_20kerrangleconversions_pyDarwinPhasesToBoyerLindquistP
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "cython/anlge_conversions.pyx":8
+  /* "cython/anlge_conversions.pyx":11
  * 
  * # Python Wrapper
  * def pyDarwinPhasesToBoyerLindquistPhases(double a, double p, double e, double x, double psi, double chi,double phi):             # <<<<<<<<<<<<<<
@@ -2496,6 +2512,273 @@ static PyObject *__pyx_pf_20kerrangleconversions_pyDarwinPhasesToBoyerLindquistP
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("kerrangleconversions.pyDarwinPhasesToBoyerLindquistPhases", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cython/anlge_conversions.pyx":20
+ *     return (Phi_r,Phi_theta,Phi_phi)
+ * 
+ * def pyBoyerLindquistPhasesToDarwinPhases(double a, double p, double e, double x,double Phi_r, double Phi_theta,double Phi_phi):             # <<<<<<<<<<<<<<
+ *     cdef double psi
+ *     cdef double chi
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_20kerrangleconversions_3pyBoyerLindquistPhasesToDarwinPhases(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_20kerrangleconversions_3pyBoyerLindquistPhasesToDarwinPhases = {"pyBoyerLindquistPhasesToDarwinPhases", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_20kerrangleconversions_3pyBoyerLindquistPhasesToDarwinPhases, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_20kerrangleconversions_3pyBoyerLindquistPhasesToDarwinPhases(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  double __pyx_v_a;
+  double __pyx_v_p;
+  double __pyx_v_e;
+  double __pyx_v_x;
+  double __pyx_v_Phi_r;
+  double __pyx_v_Phi_theta;
+  double __pyx_v_Phi_phi;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[7] = {0,0,0,0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("pyBoyerLindquistPhasesToDarwinPhases (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_a,&__pyx_n_s_p,&__pyx_n_s_e,&__pyx_n_s_x,&__pyx_n_s_Phi_r,&__pyx_n_s_Phi_theta,&__pyx_n_s_Phi_phi,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  7: values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
+        case  6: values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
+        CYTHON_FALLTHROUGH;
+        case  5: values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_a)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_p)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("pyBoyerLindquistPhasesToDarwinPhases", 1, 7, 7, 1); __PYX_ERR(0, 20, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_e)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("pyBoyerLindquistPhasesToDarwinPhases", 1, 7, 7, 2); __PYX_ERR(0, 20, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (likely((values[3] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_x)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[3]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("pyBoyerLindquistPhasesToDarwinPhases", 1, 7, 7, 3); __PYX_ERR(0, 20, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (likely((values[4] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_Phi_r)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[4]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("pyBoyerLindquistPhasesToDarwinPhases", 1, 7, 7, 4); __PYX_ERR(0, 20, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  5:
+        if (likely((values[5] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_Phi_theta)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("pyBoyerLindquistPhasesToDarwinPhases", 1, 7, 7, 5); __PYX_ERR(0, 20, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (likely((values[6] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_Phi_phi)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[6]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("pyBoyerLindquistPhasesToDarwinPhases", 1, 7, 7, 6); __PYX_ERR(0, 20, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "pyBoyerLindquistPhasesToDarwinPhases") < 0)) __PYX_ERR(0, 20, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 7)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+      values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+      values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
+      values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
+      values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
+      values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
+      values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
+    }
+    __pyx_v_a = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_a == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+    __pyx_v_p = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_p == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+    __pyx_v_e = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_e == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+    __pyx_v_x = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+    __pyx_v_Phi_r = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_Phi_r == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+    __pyx_v_Phi_theta = __pyx_PyFloat_AsDouble(values[5]); if (unlikely((__pyx_v_Phi_theta == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+    __pyx_v_Phi_phi = __pyx_PyFloat_AsDouble(values[6]); if (unlikely((__pyx_v_Phi_phi == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 20, __pyx_L3_error)
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("pyBoyerLindquistPhasesToDarwinPhases", 1, 7, 7, __pyx_nargs); __PYX_ERR(0, 20, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("kerrangleconversions.pyBoyerLindquistPhasesToDarwinPhases", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_20kerrangleconversions_2pyBoyerLindquistPhasesToDarwinPhases(__pyx_self, __pyx_v_a, __pyx_v_p, __pyx_v_e, __pyx_v_x, __pyx_v_Phi_r, __pyx_v_Phi_theta, __pyx_v_Phi_phi);
+
+  /* function exit code */
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_20kerrangleconversions_2pyBoyerLindquistPhasesToDarwinPhases(CYTHON_UNUSED PyObject *__pyx_self, double __pyx_v_a, double __pyx_v_p, double __pyx_v_e, double __pyx_v_x, double __pyx_v_Phi_r, double __pyx_v_Phi_theta, double __pyx_v_Phi_phi) {
+  double __pyx_v_psi;
+  double __pyx_v_chi;
+  double __pyx_v_phi;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("pyBoyerLindquistPhasesToDarwinPhases", 1);
+
+  /* "cython/anlge_conversions.pyx":25
+ *     cdef double phi
+ * 
+ *     BoyerLindquistPhasesToDarwinPhases(a,p,e,x,Phi_r,Phi_theta,Phi_phi, &psi, &chi, &phi)             # <<<<<<<<<<<<<<
+ * 
+ *     return (psi,chi,phi)
+ */
+  BoyerLindquistPhasesToDarwinPhases(__pyx_v_a, __pyx_v_p, __pyx_v_e, __pyx_v_x, __pyx_v_Phi_r, __pyx_v_Phi_theta, __pyx_v_Phi_phi, (&__pyx_v_psi), (&__pyx_v_chi), (&__pyx_v_phi));
+
+  /* "cython/anlge_conversions.pyx":27
+ *     BoyerLindquistPhasesToDarwinPhases(a,p,e,x,Phi_r,Phi_theta,Phi_phi, &psi, &chi, &phi)
+ * 
+ *     return (psi,chi,phi)             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_psi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_chi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_phi); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_1);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error);
+  __Pyx_GIVEREF(__pyx_t_2);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error);
+  __Pyx_GIVEREF(__pyx_t_3);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error);
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
+
+  /* "cython/anlge_conversions.pyx":20
+ *     return (Phi_r,Phi_theta,Phi_phi)
+ * 
+ * def pyBoyerLindquistPhasesToDarwinPhases(double a, double p, double e, double x,double Phi_r, double Phi_theta,double Phi_phi):             # <<<<<<<<<<<<<<
+ *     cdef double psi
+ *     cdef double chi
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("kerrangleconversions.pyBoyerLindquistPhasesToDarwinPhases", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2522,7 +2805,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_Phi_phi, __pyx_k_Phi_phi, sizeof(__pyx_k_Phi_phi), 0, 0, 1, 1},
     {&__pyx_n_s_Phi_r, __pyx_k_Phi_r, sizeof(__pyx_k_Phi_r), 0, 0, 1, 1},
     {&__pyx_n_s_Phi_theta, __pyx_k_Phi_theta, sizeof(__pyx_k_Phi_theta), 0, 0, 1, 1},
-    {&__pyx_n_s__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 1, 1},
+    {&__pyx_n_s__5, __pyx_k__5, sizeof(__pyx_k__5), 0, 0, 1, 1},
     {&__pyx_n_s_a, __pyx_k_a, sizeof(__pyx_k_a), 0, 0, 1, 1},
     {&__pyx_n_s_asyncio_coroutines, __pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 0, 1, 1},
     {&__pyx_n_s_chi, __pyx_k_chi, sizeof(__pyx_k_chi), 0, 0, 1, 1},
@@ -2536,6 +2819,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_p, __pyx_k_p, sizeof(__pyx_k_p), 0, 0, 1, 1},
     {&__pyx_n_s_phi, __pyx_k_phi, sizeof(__pyx_k_phi), 0, 0, 1, 1},
     {&__pyx_n_s_psi, __pyx_k_psi, sizeof(__pyx_k_psi), 0, 0, 1, 1},
+    {&__pyx_n_s_pyBoyerLindquistPhasesToDarwinPh, __pyx_k_pyBoyerLindquistPhasesToDarwinPh, sizeof(__pyx_k_pyBoyerLindquistPhasesToDarwinPh), 0, 0, 1, 1},
     {&__pyx_n_s_pyDarwinPhasesToBoyerLindquistPh, __pyx_k_pyDarwinPhasesToBoyerLindquistPh, sizeof(__pyx_k_pyDarwinPhasesToBoyerLindquistPh), 0, 0, 1, 1},
     {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
     {&__pyx_n_s_x, __pyx_k_x, sizeof(__pyx_k_x), 0, 0, 1, 1},
@@ -2553,17 +2837,29 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "cython/anlge_conversions.pyx":8
+  /* "cython/anlge_conversions.pyx":11
  * 
  * # Python Wrapper
  * def pyDarwinPhasesToBoyerLindquistPhases(double a, double p, double e, double x, double psi, double chi,double phi):             # <<<<<<<<<<<<<<
  *     cdef double Phi_r
  *     cdef double Phi_theta
  */
-  __pyx_tuple_ = PyTuple_Pack(10, __pyx_n_s_a, __pyx_n_s_p, __pyx_n_s_e, __pyx_n_s_x, __pyx_n_s_psi, __pyx_n_s_chi, __pyx_n_s_phi, __pyx_n_s_Phi_r, __pyx_n_s_Phi_theta, __pyx_n_s_Phi_phi); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(10, __pyx_n_s_a, __pyx_n_s_p, __pyx_n_s_e, __pyx_n_s_x, __pyx_n_s_psi, __pyx_n_s_chi, __pyx_n_s_phi, __pyx_n_s_Phi_r, __pyx_n_s_Phi_theta, __pyx_n_s_Phi_phi); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cython_anlge_conversions_pyx, __pyx_n_s_pyDarwinPhasesToBoyerLindquistPh, 8, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cython_anlge_conversions_pyx, __pyx_n_s_pyDarwinPhasesToBoyerLindquistPh, 11, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 11, __pyx_L1_error)
+
+  /* "cython/anlge_conversions.pyx":20
+ *     return (Phi_r,Phi_theta,Phi_phi)
+ * 
+ * def pyBoyerLindquistPhasesToDarwinPhases(double a, double p, double e, double x,double Phi_r, double Phi_theta,double Phi_phi):             # <<<<<<<<<<<<<<
+ *     cdef double psi
+ *     cdef double chi
+ */
+  __pyx_tuple__3 = PyTuple_Pack(10, __pyx_n_s_a, __pyx_n_s_p, __pyx_n_s_e, __pyx_n_s_x, __pyx_n_s_Phi_r, __pyx_n_s_Phi_theta, __pyx_n_s_Phi_phi, __pyx_n_s_psi, __pyx_n_s_chi, __pyx_n_s_phi); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_cython_anlge_conversions_pyx, __pyx_n_s_pyBoyerLindquistPhasesToDarwinPh, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2927,16 +3223,28 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "cython/anlge_conversions.pyx":8
+  /* "cython/anlge_conversions.pyx":11
  * 
  * # Python Wrapper
  * def pyDarwinPhasesToBoyerLindquistPhases(double a, double p, double e, double x, double psi, double chi,double phi):             # <<<<<<<<<<<<<<
  *     cdef double Phi_r
  *     cdef double Phi_theta
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_20kerrangleconversions_1pyDarwinPhasesToBoyerLindquistPhases, 0, __pyx_n_s_pyDarwinPhasesToBoyerLindquistPh, NULL, __pyx_n_s_kerrangleconversions, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_20kerrangleconversions_1pyDarwinPhasesToBoyerLindquistPhases, 0, __pyx_n_s_pyDarwinPhasesToBoyerLindquistPh, NULL, __pyx_n_s_kerrangleconversions, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyDarwinPhasesToBoyerLindquistPh, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyDarwinPhasesToBoyerLindquistPh, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "cython/anlge_conversions.pyx":20
+ *     return (Phi_r,Phi_theta,Phi_phi)
+ * 
+ * def pyBoyerLindquistPhasesToDarwinPhases(double a, double p, double e, double x,double Phi_r, double Phi_theta,double Phi_phi):             # <<<<<<<<<<<<<<
+ *     cdef double psi
+ *     cdef double chi
+ */
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_20kerrangleconversions_3pyBoyerLindquistPhasesToDarwinPhases, 0, __pyx_n_s_pyBoyerLindquistPhasesToDarwinPh, NULL, __pyx_n_s_kerrangleconversions, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyBoyerLindquistPhasesToDarwinPh, __pyx_t_2) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cython/anlge_conversions.pyx":1
@@ -5186,7 +5494,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__3);
+        name = __Pyx_NewRef(__pyx_n_s__5);
     }
     return name;
 }
