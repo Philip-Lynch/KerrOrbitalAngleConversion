@@ -181,6 +181,13 @@ double PolarMinoPhaseToBoyerLindquistPhase(double a, double p, double e, double 
     *Phi_phi = qphi + AzimuthalFrequency(a,p,e,x) * Dt;
  }
 
+ void DarwinPhasesToBoyerLindquistPhasesVectorized(double* a, double* p, double* e, double* x, double* psi, double* chi,double* phi, double *Phi_r, double *Phi_theta, double *Phi_phi,int length){
+
+    for(int i = 0; i< length; i += 1){
+        DarwinPhasesToBoyerLindquistPhases(a[i],p[i],e[i],x[i],psi[i],chi[i],phi[i], &Phi_r[i], &Phi_theta[i], &Phi_phi[i]);
+    }
+ }
+
  void BoyerLindquistPhasesToDarwinPhases(double a, double p, double e, double x, double Phi_r, double Phi_theta,double Phi_phi, double *psi, double *chi, double *phi){
 
     double qr,qz,qphi;
@@ -192,5 +199,12 @@ double PolarMinoPhaseToBoyerLindquistPhase(double a, double p, double e, double 
     *psi = RadialMinoPhaseToDarwinPhase(a,p,e,x,qr);
     *chi = PolarMinoPhaseToDarwinPhase(a,p,e,x,qz);
     *phi = AzimuthalMinoPhaseToCoordinate(a,p,e,x,qr,qz,qphi);
+ }
+
+ void BoyerLindquistPhasesToDarwinPhasesVectorized(double* a, double* p, double* e, double* x, double *Phi_r, double *Phi_theta, double *Phi_phi, double *psi, double *chi, double *phi, int length){
+
+    for(int i = 0; i< length; i += 1){
+        BoyerLindquistPhasesToDarwinPhases(a[i],p[i],e[i],x[i],Phi_r[i],Phi_theta[i],Phi_phi[i], &psi[i], &chi[i], &phi[i]);
+    }
  }
 

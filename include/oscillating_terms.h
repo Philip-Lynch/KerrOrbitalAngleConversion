@@ -9,3 +9,9 @@ double PolarQuasiKeplerianSol(double a, double p, double e, double x, double chi
 double DeltaT(double a, double p, double e, double x, double qr, double qz);
 
 double DeltaPhi(double a, double p, double e, double x, double qr, double qz);
+
+double RadialDarwinFrequency(double a, double p, double e, double x, double psi, double chi);
+
+double PolarDarwinFrequency(double a, double p, double e, double x, double psi, double chi);
+
+double AzimuthalDarwinFrequency(double a, double p, double e, double x, double psi, double chi);

@@ -45,7 +45,7 @@ int RootFindingMinoPhases(double a, double p,double e, double x_inc, double Phi_
     gsl_multiroot_fsolver *s;
     int status;
     size_t iter = 0;
-    double tolerance = 1e-7;
+    double tolerance = 1e-12;
 
     // Number of equations and unknowns
     const size_t n = 2;

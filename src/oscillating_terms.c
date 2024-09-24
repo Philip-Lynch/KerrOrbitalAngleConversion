@@ -186,3 +186,78 @@ double DeltaPhi(double a, double p, double e, double x, double qr, double qz){
     // Geodesic Solution
     return phir_qr + phiz_qz;
 }
+
+
+double RadialDarwinFrequency(double a, double p, double e, double x, double psi, double chi){
+
+    double En = Energy(a,p,e,x);
+    double L = AngularMomentum(a,p,e,x); 
+    double r = p/(1 + e * cos(psi));
+    double zm = sqrt(1 - x * x);
+    double z = zm*cos(chi);
+
+    // double Sigma = r*r + (a*a)*(z * z);
+    double Delta = r * r + a*a - 2*r;
+    double varpi = sqrt(r * r + a*a);
+
+    double F = En*varpi*varpi - a * L;
+
+    double dtdlambda =  ( F * pow(varpi,2)/Delta - En * pow(a,2)*(1 - pow(z,2))) + a*L;
+
+    double r3 = RadialRoot3(a,p,e,x);
+    double p3 = r3*(1-e);
+    double r4 = RadialRoot4(a,p,e,x);
+    double p4 = r4*(1 + e);
+
+    double dpsidlambda = (1/(1 - e*e)) * sqrt((1 - En*En) * ((p-p3) - e* (p + p3* cos(psi))) * ((p - p4) + e * (p - p4 * cos(psi))) );
+
+    return dpsidlambda / dtdlambda;
+
+}
+
+double PolarDarwinFrequency(double a, double p, double e, double x, double psi, double chi){
+
+    double En = Energy(a,p,e,x);
+    double L = AngularMomentum(a,p,e,x); 
+    double r = p/(1 + e * cos(psi));
+    double zm = sqrt(1 - x * x);
+    double zp = PolarRoot2(a,p,e,x);
+    double z = zm*cos(chi);
+    double beta = a*a*(1 - En*En);
+
+    // double Sigma = r*r + (a*a)*(z * z);
+    double Delta = r * r + a*a - 2*r;
+    double varpi = sqrt(r * r + a*a);
+
+    double F = En*varpi*varpi - a * L;
+
+    double dtdlambda =  ( F * pow(varpi,2)/Delta - En * pow(a,2)*(1 - pow(z,2))) + a*L;
+
+
+    double dchidlambda = sqrt(zp*zp - beta* z*z);
+
+    return dchidlambda / dtdlambda; 
+
+}
+
+double AzimuthalDarwinFrequency(double a, double p, double e, double x, double psi, double chi){
+
+    double En = Energy(a,p,e,x);
+    double L = AngularMomentum(a,p,e,x); 
+    double r = p/(1 + e * cos(psi));
+    double zm = sqrt(1 - x * x);
+    double z = zm*cos(chi);
+
+    // double Sigma = r*r + (a*a)*(z * z);
+    double Delta = r * r + a*a - 2*r;
+    double varpi = sqrt(r * r + a*a);
+    double F = En*varpi*varpi - a * L;
+
+    double dtdlambda = ( F * pow(varpi,2)/Delta - En * pow(a,2)*(1 - pow(z,2))) + a*L;
+
+
+    double dphidlambda = F* a / Delta +  L/(1 - z * z) - a * En;
+
+    return dphidlambda / dtdlambda; 
+
+}
